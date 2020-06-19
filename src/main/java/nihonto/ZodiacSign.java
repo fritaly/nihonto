@@ -4,32 +4,32 @@ package nihonto;
  * <p>Enumerates the 12 signs from the Japanese zodiac system known as "Ju Ni Shi".</p>
  */
 public enum ZodiacSign {
-    NEZUMI("Rat"), // aka "NE"
-    USHI("Ox"),
-    TORA("Tiger"),
-    USAGI("Rabbit"), // aka "U"
-    TATSU("Dragon"),
-    HEBI("Snake"), // aka "MI"
-    UMA("Horse"),
-    HITSUJI("Goat"),
-    SARU("Monkey"),
-    TORI("Rooster"),
-    INU("Dog"),
-    INOSHISHI("Pig"); // aka "I"
+    RAT("NEZUMI"), // aka "NE"
+    OX("USHI"),
+    TIGER("TORA"),
+    RABBIT("USAGI"), // aka "U"
+    DRAGON("TATSU"),
+    SNAKE("HEBI"), // aka "MI"
+    HORSE("UMA"),
+    GOAT("HITSUJI"),
+    MONKEY("SARU"),
+    ROOSTER("TORI"),
+    DOG("INU"),
+    PIG("INOSHISHI"); // aka "I"
 
     /**
      * <p>Internal array used for preventing repeated calls to the method {@link #values()} (optimization).</p>
      */
     private static final ZodiacSign[] VALUES = values();
 
-    private final String animal;
+    private final String romaji;
 
-    ZodiacSign(String animal) {
-        this.animal = animal;
+    ZodiacSign(String romaji) {
+        this.romaji = romaji;
     }
 
-    public String getAnimal() {
-        return animal;
+    public String getRomaji() {
+        return romaji;
     }
 
     public ZodiacSign next() {
@@ -37,16 +37,16 @@ public enum ZodiacSign {
     }
 
     /**
-     * <p>Returns the {@link ZodiacSign} sign associated to the given animal or null if none matches.</p>
+     * <p>Returns the {@link ZodiacSign} sign with the given romaji name or null if none matches.</p>
      *
-     * @param animal the name of an animal whose associated {@link ZodiacSign} sign is requested. Can't be blank.
-     * @return the {@link ZodiacSign} sign found or null if none matches the given animal.
+     * @param romaji the romaji name of the requested {@link ZodiacSign}. Can't be blank.
+     * @return the {@link ZodiacSign} sign found or null if none matches the given name.
      */
-    public static ZodiacSign fromAnimal(String animal) {
-        Assert.notBlank(animal, "animal name");
+    public static ZodiacSign fromRomaji(String romaji) {
+        Assert.notBlank(romaji, "animal name");
 
         for (ZodiacSign value: values()) {
-            if (value.animal.equalsIgnoreCase(animal)) {
+            if (value.romaji.equalsIgnoreCase(romaji)) {
                 return value;
             }
         }
