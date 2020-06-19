@@ -17,6 +17,18 @@ class ZodiacYearSpec extends Specification {
         1986 | 'HINOYE TORA'
         1987 | 'HINOTO U'
         1988 | 'TSUCHINOYE TATSU'
+        1989 | 'TSUCHINOTO MI'
+        1990 | 'KANOYE UMA'
+        1991 | 'KANOTO HITSUJI'
+        1992 | 'MIDZUNOYE SARU'
+        1993 | 'MIDZUNOTO TORI'
+        1994 | 'KINOYE INU' // <-- Jikkan new cycle (11th)
+        1995 | 'KINOTO I'
+        1996 | 'HINOYE NE' // <-- Sign new cycle (13th)
+        1997 | 'HINOTO USHI'
+        1998 | 'TSUCHINOYE TORA'
+        1999 | 'TSUCHINOTO U'
+        2000 | 'KANOYE TATSU'
 
         // Years before the reference date (1984)
         1924 | 'KINOYE NE'
