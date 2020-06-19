@@ -4,18 +4,18 @@ package nihonto;
  * <p>Enumerates the 12 signs from the Japanese zodiac system known as "Ju Ni Shi".</p>
  */
 public enum ZodiacSign {
-    NE("Rat"),
+    NEZUMI("Rat"), // aka "NE"
     USHI("Ox"),
     TORA("Tiger"),
-    U("Rabbit"),
+    USAGI("Rabbit"), // aka "U"
     TATSU("Dragon"),
-    MI("Snake"),
+    HEBI("Snake"), // aka "MI"
     UMA("Horse"),
     HITSUJI("Goat"),
     SARU("Monkey"),
     TORI("Rooster"),
     INU("Dog"),
-    I("Pig");
+    INOSHISHI("Pig"); // aka "I"
 
     /**
      * <p>Internal array used for preventing repeated calls to the method {@link #values()} (optimization).</p>

@@ -19,7 +19,7 @@ public class ZodiacYear {
             throw new IllegalArgumentException("The given year is negative or zero");
         }
 
-        // Use 1984 ("KINOYE NE" = "A RAT") as the reference date
+        // Use 1984 ("KINOYE NEZUMI" = "A RAT") as the reference date
         int currentYear = 1984;
 
         if (currentYear > year) {
@@ -37,7 +37,7 @@ public class ZodiacYear {
         final int difference = year - currentYear;
 
         Jikkan jikkan = Jikkan.KINOYE;
-        ZodiacSign sign = ZodiacSign.NE;
+        ZodiacSign sign = ZodiacSign.NEZUMI;
 
         if (difference > 0) {
             for (int i = 0; i < (difference % 10); i++) {
