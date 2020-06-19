@@ -10,7 +10,7 @@
 package nihonto;
 
 /**
- * <p>Enumerates the 10 signs from the Japanese ordinal system "Jikkan".</p>
+ * <p>Enumerates the 10 signs from the Japanese decimal ordinal system "Jikkan".</p>
  */
 public enum Jikkan {
     KINOYE('A'),
@@ -24,10 +24,19 @@ public enum Jikkan {
     MIDZUNOYE('I'),
     MIDZUNOTO('J');
 
+    /**
+     * <p>Internal array used for preventing repeated calls to the method {@link #values()} (optimization).</p>
+     */
+    private static final Jikkan[] VALUES = values();
+
     private final char character;
 
     Jikkan(char character) {
         this.character = character;
+    }
+
+    public Jikkan next() {
+        return VALUES[(ordinal() + 1) % VALUES.length];
     }
 
     /**

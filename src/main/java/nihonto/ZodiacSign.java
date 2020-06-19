@@ -26,6 +26,11 @@ public enum ZodiacSign {
     INU("Dog"),
     I("Pig");
 
+    /**
+     * <p>Internal array used for preventing repeated calls to the method {@link #values()} (optimization).</p>
+     */
+    private static final ZodiacSign[] VALUES = values();
+
     private final String animal;
 
     ZodiacSign(String animal) {
@@ -34,6 +39,10 @@ public enum ZodiacSign {
 
     public String getAnimal() {
         return animal;
+    }
+
+    public ZodiacSign next() {
+        return VALUES[(ordinal() + 1) % VALUES.length];
     }
 
     /**
