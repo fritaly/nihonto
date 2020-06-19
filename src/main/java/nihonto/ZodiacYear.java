@@ -36,7 +36,7 @@ public class ZodiacYear {
         // At this stage, currentYear < year -> difference > 0
         final int difference = year - currentYear;
 
-        Jikkan jikkan = Jikkan.KINOYE;
+        Jikkan jikkan = Jikkan.A;
         ZodiacSign sign = ZodiacSign.NEZUMI;
 
         if (difference > 0) {
@@ -78,11 +78,11 @@ public class ZodiacYear {
     public String asText(boolean japanese) {
         if (japanese) {
             // Example: "KINOYE NE"
-            return String.format("%s %s", jikkan.name(), sign.name());
+            return String.format("%s %s", jikkan.getRomaji(), sign.name());
         }
 
         // Example: "A RAT"
-        return String.format("%s %s", jikkan.getCharacter(), sign.getAnimal().toUpperCase());
+        return String.format("%s %s", jikkan.name(), sign.getAnimal().toUpperCase());
     }
 
     @Override
