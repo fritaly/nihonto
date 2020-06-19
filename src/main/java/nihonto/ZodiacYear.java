@@ -8,6 +8,49 @@ import java.util.StringJoiner;
  */
 public class ZodiacYear {
 
+    /**
+     * <p>Returns a {@link ZodiacYear} from the given Gregorian calendar year.</p>
+     *
+     * @param year an integer representing a year in the Gregorian calendar. Can't be negative or zero.
+     * @return a {@link ZodiacYear}. Never returns null.
+     */
+    public static ZodiacYear fromYear(int year) {
+        if (year <= 0) {
+            throw new IllegalArgumentException("The given year is negative or zero");
+        }
+
+        // Use 1984 ("KINOYE NE" = "A RAT") as the reference date
+        int currentYear = 1984;
+
+        if (currentYear > year) {
+            final int difference = (currentYear - year) % 60;
+
+            // We substract 60 to ensure that currentYear < year
+            currentYear = year + difference - 60;
+        } else if (currentYear < year) {
+            final int difference = (year - currentYear) % 60;
+
+            currentYear = year - difference;
+        }
+
+        // At this stage, currentYear < year -> difference > 0
+        final int difference = year - currentYear;
+
+        Jikkan jikkan = Jikkan.KINOYE;
+        ZodiacSign sign = ZodiacSign.NE;
+
+        if (difference > 0) {
+            for (int i = 0; i < (difference % 10); i++) {
+                jikkan = jikkan.next();
+            }
+            for (int i = 0; i < (difference % 12); i++) {
+                sign = sign.next();
+            }
+        }
+
+        return new ZodiacYear(jikkan, sign);
+    }
+
     private final Jikkan jikkan;
 
     private final ZodiacSign sign;
@@ -26,6 +69,10 @@ public class ZodiacYear {
 
     public ZodiacSign getSign() {
         return sign;
+    }
+
+    public ZodiacYear next() {
+        return new ZodiacYear(jikkan.next(), sign.next());
     }
 
     public String asText(boolean japanese) {
