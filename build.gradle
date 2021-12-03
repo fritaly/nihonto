@@ -1,5 +1,6 @@
 plugins {
     id 'groovy'
+    id 'com.github.hierynomus.license' version '0.15.0'
 }
 
 defaultTasks 'clean', 'build'
@@ -25,3 +26,5 @@ dependencies {
         exclude module: 'groovy-all'
     }
 }
+
+build.dependsOn 'licenseMain', 'licenseTest'
