@@ -13,19 +13,56 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package nihonto;
+package nihonto.kantei;
 
-class Assert {
+import lombok.Builder;
+import lombok.Value;
+import lombok.With;
 
-    static void notNull(Object object, String name) {
-        if (object == null) {
-            throw new IllegalArgumentException(String.format("The given %s is null", name));
-        }
-    }
+@Value
+@Builder
+@With
+public class Kantei {
 
-    static void notBlank(String string, String name) {
-        if ((string == null) || string.trim().isEmpty()) {
-            throw new IllegalArgumentException(String.format("The given %s is blank", name));
-        }
-    }
+    General general;
+
+    Geometry geometry;
+
+    Signature signature;
+
+    Measurements measurements;
+
+    Hada hada;
+
+    Curvature curvature;
+
+    Kissaki kissaki;
+
+    Mune mune;
+
+    Hamon hamon;
+
+    Yakiba yakiba;
+
+    Boshi boshi;
+
+    Nakago nakago;
+
+    Yasurime yasurime;
+
+    Bohi bohi;
+
+    Koshirae koshirae;
+
+    Polish polish;
+
+    Period period;
+
+    School school;
+
+    Origami origami;
+
+    Attribution attribution;
+
+    Other other;
 }

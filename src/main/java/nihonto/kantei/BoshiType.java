@@ -13,19 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package nihonto;
+package nihonto.kantei;
 
-class Assert {
+public enum BoshiType {
+    OMARU,
+    KOMARU,
+    TOGARI,
+    MIDARE_KOMI,
+    YAKIZUME,
+    JIZO,
+    HAKIKAKE,
+    KAEN,
+    KAERI_FUKASHI,
+    KAERI_BUKA,
+    KAERI_ASASHI,
+    KAERI_TSUYOSHI,
+    CHOJI_MIDARE_KOMI,
+    NIE_KOZURE,
+    ICHIMONJI_KAERI,
+    KOMARU_NIERU,
+    NOTARE_KOMI,
+    ICHI_MAI
 
-    static void notNull(Object object, String name) {
-        if (object == null) {
-            throw new IllegalArgumentException(String.format("The given %s is null", name));
-        }
-    }
-
-    static void notBlank(String string, String name) {
-        if ((string == null) || string.trim().isEmpty()) {
-            throw new IllegalArgumentException(String.format("The given %s is blank", name));
-        }
-    }
 }

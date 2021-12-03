@@ -13,19 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package nihonto;
+package nihonto.kantei;
 
-class Assert {
+import lombok.Builder;
+import lombok.Singular;
+import lombok.Value;
+import lombok.With;
 
-    static void notNull(Object object, String name) {
-        if (object == null) {
-            throw new IllegalArgumentException(String.format("The given %s is null", name));
-        }
-    }
+import java.util.Set;
 
-    static void notBlank(String string, String name) {
-        if ((string == null) || string.trim().isEmpty()) {
-            throw new IllegalArgumentException(String.format("The given %s is blank", name));
-        }
-    }
+@Value
+@Builder
+@With
+public class Hamon {
+
+    @Singular
+    Set<HamonType> types;
+
+    String other;
 }

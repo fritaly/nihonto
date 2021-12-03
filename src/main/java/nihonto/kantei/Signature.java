@@ -13,19 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package nihonto;
+package nihonto.kantei;
 
-class Assert {
+public class Signature {
 
-    static void notNull(Object object, String name) {
-        if (object == null) {
-            throw new IllegalArgumentException(String.format("The given %s is null", name));
-        }
-    }
+    String signature;
 
-    static void notBlank(String string, String name) {
-        if ((string == null) || string.trim().isEmpty()) {
-            throw new IllegalArgumentException(String.format("The given %s is blank", name));
-        }
-    }
+    boolean mumei, gimei, modern, none;
+
+    String date;
+
+    String other;
 }
