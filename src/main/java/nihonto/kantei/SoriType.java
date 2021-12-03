@@ -15,7 +15,7 @@
  */
 package nihonto.kantei;
 
-public enum Sori {
+public enum SoriType {
     TORIIZORI,
     KOSHIZORI,
     SAKIZORI,

@@ -26,5 +26,5 @@ public class Curvature {
 
     Length value;
 
-    Sori type;
+    SoriType type;
 }
