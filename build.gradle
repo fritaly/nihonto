@@ -1,6 +1,7 @@
 plugins {
     id 'groovy'
     id 'com.github.hierynomus.license' version '0.16.1'
+    id 'nebula.source-jar' version '18.4.0'
 }
 
 defaultTasks 'clean', 'build'
