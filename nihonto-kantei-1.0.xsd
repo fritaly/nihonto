@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xd="http://www.w3.org/2001/XMLSchema">
+
+    <!-- =============== -->
+    <!-- === NIHONTO === -->
+    <!-- =============== -->
+
+    <xs:simpleType name="nihontoEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Tachi" />
+            <xs:enumeration value="Katana" />
+            <xs:enumeration value="Wakizashi" />
+            <xs:enumeration value="Tanto" />
+            <xs:enumeration value="Naginata" />
+            <xs:enumeration value="Yari" />
+            <xs:enumeration value="Ken" />
+            <xs:enumeration value="Nagamaki" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- =========== -->
+    <!-- === MEI === -->
+    <!-- =========== -->
+
+    <xs:simpleType name="meiEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Mumei" />
+            <xs:enumeration value="Gimei" />
+            <xs:enumeration value="Modern" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="meiType">
+        <xs:sequence>
+            <xs:element name="mei" type="meiEnum" minOccurs="0" />
+            <xs:element name="ura" type="xs:string" minOccurs="0" />
+            <xs:element name="omote" type="xs:string" minOccurs="0" />
+            <xs:element name="date" type="xs:string" minOccurs="0" />
+            <xs:element name="other" type="xs:string" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ============== -->
+    <!-- === LENGTH === -->
+    <!-- ============== -->
+
+    <xs:simpleType name="lengthUnitEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="cm" />
+            <xs:enumeration value="mm" />
+            <xs:enumeration value="inch" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="lengthType">
+        <xs:attribute name="amount" type="xs:decimal" />
+        <xs:attribute name="unit" type="lengthUnitEnum" />
+    </xs:complexType>
+
+    <!-- ============== -->
+    <!-- === WEIGHT === -->
+    <!-- ============== -->
+
+    <xs:simpleType name="weightUnitEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="g" />
+            <xs:enumeration value="kg" />
+            <xs:enumeration value="once" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="weightType">
+        <xs:attribute name="amount" type="xs:decimal" />
+        <xs:attribute name="unit" type="weightUnitEnum" />
+    </xs:complexType>
+
+    <!-- ============== -->
+    <!-- === SUGATA === -->
+    <!-- ============== -->
+
+    <xs:simpleType name="sugataEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Shinogi-zukuri" />
+            <xs:enumeration value="Tsukurikomi" />
+            <xs:enumeration value="Hira-zukuri" />
+            <xs:enumeration value="Shobu-zukuri" />
+            <xs:enumeration value="Katakiriha-zukuri" />
+            <xs:enumeration value="Kiriha-zukuri" />
+            <xs:enumeration value="Kanmuriotoshi-zukuri" />
+            <xs:enumeration value="Kogarasumaru-zukuri" />
+            <xs:enumeration value="Osoraku-zukuri" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- ==================== -->
+    <!-- === MEASUREMENTS === -->
+    <!-- ==================== -->
+
+    <xs:complexType name="measurementsType">
+        <xs:sequence>
+            <xs:element name="totalLength" type="lengthType" minOccurs="0" />
+            <xs:element name="nagasa" type="lengthType" minOccurs="0" />
+            <xs:element name="kasane" type="lengthType" minOccurs="0" />
+            <xs:element name="mihaba" type="lengthType" minOccurs="0" />
+            <xs:element name="motohaba" type="lengthType" minOccurs="0" />
+            <xs:element name="sakihaba" type="lengthType" minOccurs="0" />
+            <xs:element name="motokasane" type="lengthType" minOccurs="0" />
+            <xs:element name="weigh" type="weightType" minOccurs="0" />
+            <xs:element name="mekugiana" type="xs:integer" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ============ -->
+    <!-- === HADA === -->
+    <!-- ============ -->
+
+    <xs:simpleType name="hadaEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Itame" />
+            <xs:enumeration value="Mokume" />
+            <xs:enumeration value="Masame" />
+            <xs:enumeration value="Ayasugi" />
+            <xs:enumeration value="Nashiji" />
+            <xs:enumeration value="Konuka" />
+            <xs:enumeration value="Muji" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="hadaType">
+        <xs:sequence>
+            <xs:element name="hada" type="hadaEnum" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ============ -->
+    <!-- === SORI === -->
+    <!-- ============ -->
+
+    <xs:simpleType name="soriEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Toriizori" />
+            <xs:enumeration value="Koshizori" />
+            <xs:enumeration value="Sakizori" />
+            <xs:enumeration value="Uchizori" />
+            <xs:enumeration value="Muzori" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="soriType">
+        <xs:sequence>
+            <xs:element name="sori" type="lengthType" maxOccurs="1" />
+            <xs:element name="type" type="soriEnum" maxOccurs="1" />
+            <xs:element name="other" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- =============== -->
+    <!-- === KISSAKI === -->
+    <!-- =============== -->
+
+    <xs:simpleType name="kissakiEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Ko-kissaki" />
+            <xs:enumeration value="Chu-kissaki" />
+            <xs:enumeration value="O-kissaki" />
+            <xs:enumeration value="Ikubi-kissaki" />
+            <xs:enumeration value="Ikari-kissaki" />
+            <xs:enumeration value="Kamasu-kissaki" />
+            <xs:enumeration value="Moroha-kissaki" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="kissakiType">
+        <xs:sequence>
+            <xs:element name="type" type="kissakiEnum" maxOccurs="1" />
+            <xs:element name="other" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ============ -->
+    <!-- === MUNE === -->
+    <!-- ============ -->
+
+    <xs:simpleType name="muneEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Iori" />
+            <xs:enumeration value="Takashi" />
+            <xs:enumeration value="Hikushi" />
+            <xs:enumeration value="Hira" />
+            <xs:enumeration value="Mitsu" />
+            <xs:enumeration value="Maru" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="muneType">
+        <xs:sequence>
+            <xs:element name="type" type="muneEnum" maxOccurs="1" />
+            <xs:element name="other" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ============= -->
+    <!-- === HAMON === -->
+    <!-- ============= -->
+
+    <xs:simpleType name="hamonEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Suguha" />
+            <xs:enumeration value="Gunome" />
+            <xs:enumeration value="Choji" />
+            <xs:enumeration value="Midare" />
+            <xs:enumeration value="Notare" />
+            <xs:enumeration value="Hitatsura" />
+            <xs:enumeration value="Sudare" />
+            <xs:enumeration value="Toranba" />
+            <xs:enumeration value="Juzu-ba" />
+            <xs:enumeration value="Kikusui-ba" />
+            <xs:enumeration value="Mimigata-ha" />
+            <xs:enumeration value="Nokogiri-ba" />
+            <xs:enumeration value="Fujimi-saigyō" />
+            <xs:enumeration value="Doran" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="hamonType">
+        <xs:sequence>
+            <xs:element name="type" type="hamonEnum" minOccurs="0" maxOccurs="20" />
+            <xs:element name="other" type="xs:string" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ============== -->
+    <!-- === YAKIBA === -->
+    <!-- ============== -->
+
+    <xs:simpleType name="yakibaEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Nie" />
+            <xs:enumeration value="Nioi" />
+            <xs:enumeration value="Inazuma" />
+            <xs:enumeration value="Chikei" />
+            <xs:enumeration value="Tobiyaki" />
+            <xs:enumeration value="Hotsure" />
+            <xs:enumeration value="Yo" />
+            <xs:enumeration value="Yakikuzure" />
+            <xs:enumeration value="Yubashiri" />
+            <xs:enumeration value="Kinsuji" />
+            <xs:enumeration value="Ashi" />
+            <xs:enumeration value="Nijūba" />
+            <xs:enumeration value="Utsuri" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="yakibaType">
+        <xs:sequence>
+            <xs:element name="type" type="yakibaEnum" />
+            <xs:element name="other" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ============= -->
+    <!-- === BOSHI === -->
+    <!-- ============= -->
+
+    <xs:simpleType name="boshiEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="O-maru" />
+            <xs:enumeration value="Ko-maru" />
+            <xs:enumeration value="Togari" />
+            <xs:enumeration value="Midare-komi" />
+            <xs:enumeration value="Yakizume" />
+            <xs:enumeration value="Jizo" />
+            <xs:enumeration value="Hakikake" />
+            <xs:enumeration value="Kaen" />
+            <xs:enumeration value="Kaeri-fukashi" />
+            <xs:enumeration value="Kaeri-buka" />
+            <xs:enumeration value="Kaeri-asashi" />
+            <xs:enumeration value="Kaeri-tsuyoshi" />
+            <xs:enumeration value="Choji-midare-komi" />
+            <xs:enumeration value="Nie-kozure" />
+            <xs:enumeration value="Ichimonji-kaeri" />
+            <xs:enumeration value="Komaru-nieru" />
+            <xs:enumeration value="Notare-komi" />
+            <xs:enumeration value="Ichi-mai" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="boshiType">
+        <xs:sequence>
+            <xs:element name="type" type="boshiEnum" />
+            <xs:element name="other" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ============== -->
+    <!-- === NAKAGO === -->
+    <!-- ============== -->
+
+    <xs:simpleType name="nakagoEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Ucu" />
+            <xs:enumeration value="Futsu-gata" />
+            <xs:enumeration value="Kijimomo-gata" />
+            <xs:enumeration value="Shiribari-gata" />
+            <xs:enumeration value="Gohei-gata" />
+            <xs:enumeration value="Funa-gata" />
+            <xs:enumeration value="Furisode-gata" />
+            <xs:enumeration value="Suriage" />
+            <xs:enumeration value="O-suriage" />
+            <xs:enumeration value="Machi-okuri" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="nakagoType">
+        <xs:sequence>
+            <xs:element name="type" type="nakagoEnum" />
+            <xs:element name="other" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ================ -->
+    <!-- === YASURIME === -->
+    <!-- ================ -->
+
+    <xs:simpleType name="yasurimeEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Kiri" />
+            <xs:enumeration value="Kattesagari" />
+            <xs:enumeration value="Higaki" />
+            <xs:enumeration value="Takanoha" />
+            <xs:enumeration value="Sujikai" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="yasurimeType">
+        <xs:sequence>
+            <xs:element name="type" type="yasurimeEnum" />
+            <xs:element name="other" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ============ -->
+    <!-- === BOHI === -->
+    <!-- ============ -->
+
+    <xs:simpleType name="bohiEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Bo-hi" />
+            <xs:enumeration value="Soe-hi" />
+            <xs:enumeration value="Horimono" />
+            <xs:enumeration value="Katana-hi" />
+            <xs:enumeration value="Koshi-bi" />
+            <xs:enumeration value="Futasuji-hi" />
+            <xs:enumeration value="Gomabashi" />
+            <xs:enumeration value="Bonji" />
+            <xs:enumeration value="Kanji" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="bohiType">
+        <xs:sequence>
+            <xs:element name="type" type="bohiEnum" />
+            <xs:element name="other" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ================ -->
+    <!-- === KOSHIRAE === -->
+    <!-- ================ -->
+
+    <xs:complexType name="koshiraeType">
+        <xs:sequence>
+            <xs:element name="saya" type="xs:boolean" />
+            <xs:element name="shirasaya" type="xs:boolean" />
+            <xs:element name="habaki" type="xs:boolean" />
+            <xs:element name="tsuba" type="xs:boolean" />
+            <xs:element name="tsuka" type="xs:boolean" />
+            <xs:element name="menuki" type="xs:boolean" />
+            <xs:element name="kogatana" type="xs:boolean" />
+            <xs:element name="other" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ============== -->
+    <!-- === POLISH === -->
+    <!-- ============== -->
+
+    <xs:simpleType name="polishEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="None" />
+            <xs:enumeration value="Rough" />
+            <xs:enumeration value="Raw" />
+            <xs:enumeration value="Original" />
+            <xs:enumeration value="Sashikomi" />
+            <xs:enumeration value="Hadori" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="polishType">
+        <xs:sequence>
+            <xs:element name="type" type="polishEnum" />
+            <xs:element name="other" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ============== -->
+    <!-- === PERIOD === -->
+    <!-- ============== -->
+
+    <xs:simpleType name="periodEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Kotō">
+                <xs:annotation>
+                    <xs:documentation>1000-1615</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Shintō">
+                <xs:annotation>
+                    <xs:documentation>1615-1781</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Shinshintō">
+                <xs:annotation>
+                    <xs:documentation>1781-1876</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Gendaitō">
+                <xs:annotation>
+                    <xs:documentation>1876-1945</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Shinsakutō">
+                <xs:annotation>
+                    <xs:documentation>1953-Nowadays</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- =============== -->
+    <!-- === ORIGAMI === -->
+    <!-- =============== -->
+
+    <xs:simpleType name="origamiEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="NBTHK" />
+            <xs:enumeration value="NTHK" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="origamiType">
+        <xs:sequence>
+            <xs:element name="type" type="origamiEnum" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ============= -->
+    <!-- === MONEY === -->
+    <!-- ============= -->
+
+    <xs:simpleType name="currencyEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="AUD" />
+            <xs:enumeration value="CAD" />
+            <xs:enumeration value="EUR" />
+            <xs:enumeration value="GBP" />
+            <xs:enumeration value="JPY" />
+            <xs:enumeration value="USD" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="money">
+        <xs:attribute name="amount" type="xs:decimal" />
+        <xs:attribute name="currency" type="currencyEnum" />
+    </xs:complexType>
+
+    <!-- =================== -->
+    <!-- === TRANSACTION === -->
+    <!-- =================== -->
+
+    <xs:simpleType name="paymentType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Cash" />
+            <xs:enumeration value="Bank transfer" />
+            <xs:enumeration value="PayPal" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="person">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" minOccurs="0" />
+            <xs:element name="nickname" type="xs:string" minOccurs="0" />
+            <xs:element name="address" type="xs:string" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="transactionType">
+        <xs:sequence>
+            <xs:element name="price" type="money" minOccurs="0" />
+            <xs:element name="paymentMethod" type="paymentType" minOccurs="0" />
+            <xs:element name="paymentDate" type="xs:date" minOccurs="0" />
+
+            <xs:element name="seller" type="person" minOccurs="0" />
+            <xs:element name="shippingFees" type="money" minOccurs="0" />
+            <xs:element name="importFees" type="money" minOccurs="0" />
+            <xs:element name="deliveryDate" type="xs:date" minOccurs="0" />
+
+            <xs:element name="contact" type="xs:string" minOccurs="0" />
+            <xs:element name="other" type="xs:string" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ================== -->
+    <!-- === REFERENCES === -->
+    <!-- ================== -->
+
+    <xs:complexType name="referenceType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="url" type="xs:anyURI" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="referencesType">
+        <xs:sequence>
+            <xs:element name="reference" type="referenceType" maxOccurs="10" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ============== -->
+    <!-- === KANTEI === -->
+    <!-- ============== -->
+
+    <xd:element name="kantei">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:string" />
+                <xs:element name="type" type="nihontoEnum" />
+                <xs:element name="mei" type="meiType" minOccurs="0" />
+                <xs:element name="measurements" type="measurementsType" minOccurs="0" />
+                <xs:element name="sugata" type="sugataEnum" minOccurs="0" />
+                <xs:element name="hada" type="hadaType" minOccurs="0" />
+                <xs:element name="sori" type="soriType" minOccurs="0" />
+                <xs:element name="kissaki" type="kissakiType" minOccurs="0" />
+                <xs:element name="mune" type="muneType" minOccurs="0" />
+                <xs:element name="hamon" type="hamonType" minOccurs="0" />
+                <xs:element name="yakiba" type="yakibaType" minOccurs="0" />
+                <xs:element name="boshi" type="boshiType" minOccurs="0" />
+                <xs:element name="nakago" type="nakagoType" minOccurs="0" />
+                <xs:element name="yasurime" type="yasurimeType" minOccurs="0" />
+                <xs:element name="bohi" type="bohiType" minOccurs="0" />
+                <xs:element name="koshirae" type="koshiraeType" minOccurs="0" />
+                <xs:element name="polish" type="polishType" minOccurs="0" />
+                <xs:element name="period" type="periodEnum" minOccurs="0" />
+                <xs:element name="school" type="xs:string" minOccurs="0" />
+                <xs:element name="origami" type="origamiType" minOccurs="0" />
+                <xs:element name="attribution" type="xs:string" minOccurs="0" />
+                <xs:element name="other" type="xs:string" minOccurs="0" />
+                <xs:element name="transaction" type="transactionType" minOccurs="0" />
+                <xs:element name="references" type="referencesType" minOccurs="0" />
+            </xs:sequence>
+        </xs:complexType>
+    </xd:element>
+</xs:schema>
