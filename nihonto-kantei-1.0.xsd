@@ -310,9 +310,13 @@
         </xs:restriction>
     </xs:simpleType>
 
+    <xs:complexType name="hadaItem">
+        <xs:attribute name="type" type="hadaEnum" />
+    </xs:complexType>
+
     <xs:complexType name="hadaType">
         <xs:sequence>
-            <xs:element name="hada" type="hadaEnum" />
+            <xs:element name="hada" type="hadaItem" />
         </xs:sequence>
     </xs:complexType>
 
@@ -570,12 +574,16 @@
         </xs:restriction>
     </xs:simpleType>
 
+    <xs:complexType name="hamonItem">
+        <xs:attribute name="type" type="hamonEnum" />
+    </xs:complexType>
+
     <xs:complexType name="hamonType">
         <xs:annotation>
             <xs:documentation>Lit. “blade pattern.” Pattern of the habuchi, or outline of the hardened zone (yakiba).</xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="type" type="hamonEnum" minOccurs="0" maxOccurs="20" />
+            <xs:element name="hamon" type="hamonItem" minOccurs="0" maxOccurs="20" />
             <xs:element name="other" type="xs:string" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
@@ -698,9 +706,13 @@
         </xs:restriction>
     </xs:simpleType>
 
+    <xs:complexType name="hatarakiItem">
+        <xs:attribute name="type" type="hatarakiEnum" />
+    </xs:complexType>
+
     <xs:complexType name="hatarakiType">
         <xs:sequence>
-            <xs:element name="type" type="hatarakiEnum" />
+            <xs:element name="hataraki" type="hatarakiItem" />
             <xs:element name="other" type="xs:string" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
