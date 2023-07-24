@@ -12,6 +12,7 @@
             <xs:enumeration value="Ken" />
             <xs:enumeration value="Nagamaki" />
             <xs:enumeration value="Naginata" />
+            <xs:enumeration value="Other" />
             <xs:enumeration value="Tachi" />
             <xs:enumeration value="Tantō" />
             <xs:enumeration value="Wakizashi" />
@@ -41,11 +42,33 @@
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:complexType name="meiType">
+    <xs:complexType name="omoteType">
+        <xs:annotation>
+            <xs:documentation>
+                Generic term for “front side, outside, exterior.” The opposite side is called ura (裏).
+            </xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:extension base="xs:string" />
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="uraType">
+        <xs:annotation>
+            <xs:documentation>
+                Generic term for “reverse side, inside.” The opposite is called omote (表).
+            </xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:extension base="xs:string" />
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="signatureType">
         <xs:sequence>
             <xs:element name="mei" type="meiEnum" minOccurs="0" />
-            <xs:element name="ura" type="xs:string" minOccurs="0" />
-            <xs:element name="omote" type="xs:string" minOccurs="0" />
+            <xs:element name="ura" type="uraType" minOccurs="0" />
+            <xs:element name="omote" type="omoteType" minOccurs="0" />
             <xs:element name="date" type="xs:string" minOccurs="0" />
             <xs:element name="other" type="xs:string" minOccurs="0" />
         </xs:sequence>
@@ -253,6 +276,7 @@
             <xs:element name="sakikasane" type="sakikasaneType" minOccurs="0" />
             <xs:element name="weight" type="weightType" minOccurs="0" />
             <xs:element name="mekugi-ana" type="mekugianaType" minOccurs="0" />
+            <xs:element name="sori" type="soriType" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
 
@@ -392,9 +416,9 @@
     <xs:complexType name="soriType">
         <xs:sequence>
             <xs:element name="sori" type="lengthType" maxOccurs="1" />
-            <xs:element name="type" type="soriEnum" maxOccurs="1" />
-            <xs:element name="other" type="xs:string" />
+            <xs:element name="other" type="xs:string" minOccurs="0" />
         </xs:sequence>
+        <xs:attribute name="type" type="soriEnum" />
     </xs:complexType>
 
     <!-- =============== -->
@@ -502,6 +526,8 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+
+            <xs:enumeration value="Chōji-midare" />
 
             <xs:enumeration value="Fujimi-saigyō">
                 <xs:annotation>
@@ -893,25 +919,34 @@
     <!-- === NAKAGO === -->
     <!-- ============== -->
 
-    <xs:simpleType name="nakagoEnum">
+    <xs:simpleType name="nakagoAlteration">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Ubu" />
+            <xs:enumeration value="Suriage" />
+            <xs:enumeration value="O-suriage" />
+            <xs:enumeration value="Machi-okuri" />
+            <xs:enumeration value="Orikaeshi" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="nakagoShape">
         <xs:restriction base="xs:string">
             <xs:enumeration value="Funa-gata" />
             <xs:enumeration value="Furisode-gata" />
             <xs:enumeration value="Futsu-gata" />
             <xs:enumeration value="Gohei-gata" />
             <xs:enumeration value="Kijimomo-gata" />
-            <xs:enumeration value="Machi-okuri" />
-            <xs:enumeration value="O-suriage" />
             <xs:enumeration value="Shiribari-gata" />
-            <xs:enumeration value="Suriage" />
-            <xs:enumeration value="Ubu" />
+            <xs:enumeration value="Tanago-bara-gata" />
         </xs:restriction>
     </xs:simpleType>
 
     <xs:complexType name="nakagoType">
         <xs:sequence>
-            <xs:element name="type" type="nakagoEnum" />
-            <xs:element name="other" type="xs:string" />
+            <xs:element name="length" type="lengthType" minOccurs="0" />
+            <xs:element name="shape" type="nakagoShape" minOccurs="0" />
+            <xs:element name="alteration" type="nakagoAlteration" minOccurs="0" />
+            <xs:element name="other" type="xs:string" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
 
@@ -1029,14 +1064,14 @@
 
     <xs:complexType name="koshiraeType">
         <xs:sequence>
-            <xs:element name="saya" type="xs:boolean" />
-            <xs:element name="shirasaya" type="xs:boolean" />
-            <xs:element name="habaki" type="xs:boolean" />
-            <xs:element name="tsuba" type="xs:boolean" />
-            <xs:element name="tsuka" type="xs:boolean" />
-            <xs:element name="menuki" type="xs:boolean" />
-            <xs:element name="kogatana" type="xs:boolean" />
-            <xs:element name="other" type="xs:string" />
+            <xs:element name="saya" type="xs:boolean" minOccurs="0" />
+            <xs:element name="shirasaya" type="xs:boolean" minOccurs="0" />
+            <xs:element name="habaki" type="xs:boolean" minOccurs="0" />
+            <xs:element name="tsuba" type="xs:string" minOccurs="0" />
+            <xs:element name="tsuka" type="xs:string" minOccurs="0" />
+            <xs:element name="menuki" type="xs:boolean" minOccurs="0" />
+            <xs:element name="kogatana" type="xs:boolean" minOccurs="0" />
+            <xs:element name="other" type="xs:string" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
 
@@ -1066,6 +1101,7 @@
     <xs:complexType name="polishType">
         <xs:sequence>
             <xs:element name="type" type="polishEnum" />
+            <xs:element name="polisher" type="xs:string" />
             <xs:element name="other" type="xs:string" />
         </xs:sequence>
     </xs:complexType>
@@ -1107,12 +1143,15 @@
         </xs:restriction>
     </xs:simpleType>
 
-    <!-- =============== -->
-    <!-- === ORIGAMI === -->
-    <!-- =============== -->
+    <!-- ============== -->
+    <!-- === PAPERS === -->
+    <!-- ============== -->
 
-    <xs:simpleType name="origamiEnum">
+    <xs:simpleType name="paperOrganization">
         <xs:restriction base="xs:string">
+            <xs:enumeration value="Fujishiro" />
+            <xs:enumeration value="Japanese Ministry of Education" />
+            <xs:enumeration value="NTB" />
             <xs:enumeration value="NBTHK">
                 <xs:annotation>
                     <xs:documentation>Nihon Bijutsu Token Hozon Kyokai</xs:documentation>
@@ -1132,9 +1171,151 @@
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:complexType name="origamiType">
+    <xs:simpleType name="paperType">
+        <xs:restriction base="xs:string">
+            <!-- NBTHK -->
+            <xs:enumeration value="(NBTHK) Kicho">
+                <xs:annotation>
+                    <xs:documentation>Aka white papers ("Important Work")</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="(NBTHK) Tokubetsu Kicho">
+                <xs:annotation>
+                    <xs:documentation>Aka green papers ("Extraordinary Work")</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="(NBTHK) Koshu Tokubetsu Kicho">
+                <xs:annotation>
+                    <xs:documentation>Aka blue papers ("Special Extraordinary Work")</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="(NBTHK) Juyo Token">
+                <xs:annotation>
+                    <xs:documentation>"Very Important Work"</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="(NBTHK) Tokubetsu Juyo">
+                <xs:annotation>
+                    <xs:documentation>"Extraordinarily Important Work"</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="(NBTHK) Hozon">
+                <xs:annotation>
+                    <xs:documentation>"Worthy of Preservation"</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="(NBTHK) Tokubetsu Hozon">
+                <xs:annotation>
+                    <xs:documentation>"Extraordinarily Worthy of Preservation"</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="(NBTHK) Juyo Token">
+                <xs:annotation>
+                    <xs:documentation>"Very Important Work"</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="(NBTHK) Tokubetsu Juyo">
+                <xs:annotation>
+                    <xs:documentation>"Extraordinarily Important Work"</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+
+            <!-- Ministry of Education -->
+            <xs:enumeration value="(MoE) Juyo Bijutsu Hin">
+                <xs:annotation>
+                    <xs:documentation>"Important Art Object"</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="(MoE) Juyo Bunkazai">
+                <xs:annotation>
+                    <xs:documentation>"Important Cultural Asset"</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="(MoE) Kokuho">
+                <xs:annotation>
+                    <xs:documentation>"National Treasure"</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+
+            <!-- NTHK -->
+            <xs:enumeration value="(NTHK) Shinteisho">
+                <xs:annotation>
+                    <xs:documentation>"Genuine Work"</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="(NTHK) Kanteisho">
+                <xs:annotation>
+                    <xs:documentation>"Important Work"</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="(NTHK) Yushu Saku">
+                <xs:annotation>
+                    <xs:documentation>"Very Important Work"</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="(NTHK) Sai Yushu Saku">
+                <xs:annotation>
+                    <xs:documentation>"Special Important Work"</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+
+            <!-- Fujishiro -->
+            <xs:enumeration value="(Fujishiro) Chu-Saku">
+                <xs:annotation>
+                    <xs:documentation>"Average Made"</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="(Fujishiro) Chu-Jo-Saku">
+                <xs:annotation>
+                    <xs:documentation>"Above Average Made"</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="(Fujishiro) Jo-Saku">
+                <xs:annotation>
+                    <xs:documentation>"Superior Made"</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="(Fujishiro) Jo-Jo-Saku">
+                <xs:annotation>
+                    <xs:documentation>"Above Superior Made"</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="(Fujishiro) Sai-Jo-Saku">
+                <xs:annotation>
+                    <xs:documentation>"Most Superior Made"</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+
+            <!-- NTB -->
+            <xs:enumeration value="(NTB) Bunka Shiryō">
+                <xs:annotation>
+                    <xs:documentation>"Cultural Item"</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="(NTB) Tokubetsu Bunka Shiryō">
+                <xs:annotation>
+                    <xs:documentation>"Worthy Cultural Item"</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="(NTB) Yushu Bunka-zai">
+                <xs:annotation>
+                    <xs:documentation>"Important Cultural Item"</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="paperItem" mixed="true">
+        <xs:attribute name="organization" type="paperOrganization" />
+        <xs:attribute name="type" type="paperType" />
+        <xs:attribute name="number" type="xs:positiveInteger" />
+        <xs:attribute name="issueDate" type="xs:attribute" />
+    </xs:complexType>
+
+    <xs:complexType name="papersType">
         <xs:sequence>
-            <xs:element name="type" type="origamiEnum" />
+            <xs:element name="paper" type="paperItem" minOccurs="0" maxOccurs="20" />
+            <xs:element name="other" type="paperItem" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
 
@@ -1230,6 +1411,7 @@
         <xs:simpleContent>
             <xs:extension base="xs:string">
                 <xs:attribute name="url" type="xs:anyURI" />
+                <xs:attribute name="date" type="xs:date" />
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
@@ -1252,6 +1434,66 @@
         <xs:restriction base="xs:string" />
     </xs:simpleType>
 
+    <!-- ============= -->
+    <!-- === FLAWS === -->
+    <!-- ============= -->
+
+    <!-- TODO Enumerate the different types of flaw -->
+    <xs:simpleType name="flawEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Ha-kobore">
+                <xs:annotation>
+                    <xs:documentation>
+                        Chips, cuts, and broken-out pieces along the cutting edge of a sword.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Fukure">
+                <xs:annotation>
+                    <xs:documentation>
+                        A pocket of air in the steel that was not forced out during the forging process. A fukure
+                        appears as a blister- like swelling on the surface of the blade.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Hagire">
+                <xs:annotation>
+                    <xs:documentation>
+                        A crack in the edge that continues from the cutting edge towards the hamon, at a 90° angle.
+                        Caused by faulty tempering or by actual contact in fighting.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Other" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="flawType" mixed="true">
+        <xs:annotation>
+            <xs:documentation>-</xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="type" type="flawEnum"/>
+    </xs:complexType>
+
+    <xs:complexType name="flawsType">
+        <xs:sequence>
+            <xs:element name="flaw" type="flawType" maxOccurs="20" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ================== -->
+    <!-- === HIGHLIGHTS === -->
+    <!-- ================== -->
+
+    <xs:complexType name="highlightsType">
+        <xs:annotation>
+            <xs:documentation>Lists the features which makes this nihontō attractive.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="highlight" type="xs:string" minOccurs="0" maxOccurs="20" />
+        </xs:sequence>
+    </xs:complexType>
+
     <!-- ============== -->
     <!-- === KANTEI === -->
     <!-- ============== -->
@@ -1262,11 +1504,10 @@
                 <xs:element name="id" type="xs:string" />
                 <xs:element name="type" type="nihontoEnum" />
                 <xs:element name="description" type="descriptionType" minOccurs="0" />
-                <xs:element name="mei" type="meiType" minOccurs="0" />
+                <xs:element name="signature" type="signatureType" minOccurs="0" />
                 <xs:element name="measurements" type="measurementsType" minOccurs="0" />
                 <xs:element name="sugata" type="sugataEnum" minOccurs="0" />
                 <xs:element name="hada" type="hadaType" minOccurs="0" />
-                <xs:element name="sori" type="soriType" minOccurs="0" />
                 <xs:element name="kissaki" type="kissakiType" minOccurs="0" />
                 <xs:element name="mune" type="muneType" minOccurs="0" />
                 <xs:element name="hamon" type="hamonType" minOccurs="0" />
@@ -1279,10 +1520,13 @@
                 <xs:element name="polish" type="polishType" minOccurs="0" />
                 <xs:element name="period" type="periodEnum" minOccurs="0" />
                 <xs:element name="school" type="xs:string" minOccurs="0" />
-                <xs:element name="origami" type="origamiType" minOccurs="0" />
+                <xs:element name="papers" type="papersType" minOccurs="0" />
                 <xs:element name="attribution" type="xs:string" minOccurs="0" />
                 <xs:element name="transaction" type="transactionType" minOccurs="0" />
+                <xs:element name="highlights" type="highlightsType" minOccurs="0" />
                 <xs:element name="references" type="referencesType" minOccurs="0" />
+                <xs:element name="oshigata" type="xs:boolean" minOccurs="0" />
+                <xs:element name="flaws" type="flawsType" minOccurs="0" />
                 <xs:element name="other" type="xs:string" minOccurs="0" />
             </xs:sequence>
         </xs:complexType>
