@@ -580,11 +580,11 @@
         </xs:sequence>
     </xs:complexType>
 
-    <!-- ============== -->
-    <!-- === YAKIBA === -->
-    <!-- ============== -->
+    <!-- ================ -->
+    <!-- === HATARAKI === -->
+    <!-- ================ -->
 
-    <xs:simpleType name="yakibaEnum">
+    <xs:simpleType name="hatarakiEnum">
         <xs:restriction base="xs:string">
             <xs:enumeration value="Nie">
                 <xs:annotation>
@@ -686,13 +686,22 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+            <xs:enumeration value="Sunagashi">
+                <xs:annotation>
+                    <xs:documentation>
+                        Lit. “stream of sand” or “flowing sand.” Accumulation of nie that resembles the marks left
+                        behind by a broom speeping over sand. Sunagashi usually appear inside the hamon and near and
+                        parallel to the habuchi.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:complexType name="yakibaType">
+    <xs:complexType name="hatarakiType">
         <xs:sequence>
-            <xs:element name="type" type="yakibaEnum" />
-            <xs:element name="other" type="xs:string" />
+            <xs:element name="type" type="hatarakiEnum" />
+            <xs:element name="other" type="xs:string" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
 
@@ -1103,7 +1112,7 @@
                 <xs:element name="kissaki" type="kissakiType" minOccurs="0" />
                 <xs:element name="mune" type="muneType" minOccurs="0" />
                 <xs:element name="hamon" type="hamonType" minOccurs="0" />
-                <xs:element name="yakiba" type="yakibaType" minOccurs="0" />
+                <xs:element name="hataraki" type="hatarakiType" minOccurs="0" />
                 <xs:element name="boshi" type="boshiType" minOccurs="0" />
                 <xs:element name="nakago" type="nakagoType" minOccurs="0" />
                 <xs:element name="yasurime" type="yasurimeType" minOccurs="0" />
