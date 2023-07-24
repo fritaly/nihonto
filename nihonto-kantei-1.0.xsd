@@ -711,24 +711,111 @@
 
     <xs:simpleType name="boshiEnum">
         <xs:restriction base="xs:string">
-            <xs:enumeration value="O-maru" />
-            <xs:enumeration value="Ko-maru" />
-            <xs:enumeration value="Togari" />
-            <xs:enumeration value="Midare-komi" />
-            <xs:enumeration value="Yakizume" />
-            <xs:enumeration value="Jizo" />
-            <xs:enumeration value="Hakikake" />
-            <xs:enumeration value="Kaen" />
-            <xs:enumeration value="Kaeri-fukashi" />
-            <xs:enumeration value="Kaeri-buka" />
-            <xs:enumeration value="Kaeri-asashi" />
-            <xs:enumeration value="Kaeri-tsuyoshi" />
-            <xs:enumeration value="Choji-midare-komi" />
-            <xs:enumeration value="Nie-kozure" />
-            <xs:enumeration value="Ichimonji-kaeri" />
-            <xs:enumeration value="Komaru-nieru" />
-            <xs:enumeration value="Notare-komi" />
-            <xs:enumeration value="Ichi-mai" />
+            <xs:enumeration value="O-maru">
+                <xs:annotation>
+                    <xs:documentation></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Ko-maru">
+                <xs:annotation>
+                    <xs:documentation></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Togari">
+                <xs:annotation>
+                    <xs:documentation>
+                        Prefix for any kind of pointed hamon element. For example a togari-gunome consists of gunome
+                        which are noticeably pointed. Togari is a common feature of Sue-Seki blades.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Midare-komi">
+                <xs:annotation>
+                    <xs:documentation>Irregular, midare-based bōshi.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Yakizume">
+                <xs:annotation>
+                    <xs:documentation>
+                        Also pronounced as yakitsume. A bōshi where the hamon runs out without kaeri. The yakizume
+                        itself can be sugu or midare-komi and accompanied by various hataraki.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Jizo">
+                <xs:annotation>
+                    <xs:documentation></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Hakikake">
+                <xs:annotation>
+                    <xs:documentation>
+                        Lit. “sweeping.” Similar to sunagashi, but much shorter and thinner and spilling into the ji.
+                        Can appear along the habuchi of a hamon and/or in a bōshi.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Kaen">
+                <xs:annotation>
+                    <xs:documentation>
+                        Lit. “flame, blaze.” Very nie-laden bōshi with an abundance of hakikake which looks like flames.
+                        Sometimes also referred to as kaen-gashira (火焔頭・火炎頭, lit. “head in flames”).
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Kaeri-fukashi">
+                <xs:annotation>
+                    <xs:documentation></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Kaeri-buka">
+                <xs:annotation>
+                    <xs:documentation></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Kaeri-asashi">
+                <xs:annotation>
+                    <xs:documentation></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Kaeri-tsuyoshi">
+                <xs:annotation>
+                    <xs:documentation></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Choji-midare-komi">
+                <xs:annotation>
+                    <xs:documentation></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Nie-kozure">
+                <xs:annotation>
+                    <xs:documentation></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Ichimonji-kaeri">
+                <xs:annotation>
+                    <xs:documentation>
+                        Bōshi where the kaeri sets off in a straight manner towards the mune and does not run back along
+                        the back (or runs back only very little).
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Komaru-nieru">
+                <xs:annotation>
+                    <xs:documentation></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Notare-komi">
+                <xs:annotation>
+                    <xs:documentation></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Ichi-mai">
+                <xs:annotation>
+                    <xs:documentation></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
 
