@@ -7,14 +7,15 @@
 
     <xs:simpleType name="nihontoEnum">
         <xs:restriction base="xs:string">
-            <xs:enumeration value="Tachi" />
+            <!-- Order by values by name -->
             <xs:enumeration value="Katana" />
-            <xs:enumeration value="Wakizashi" />
-            <xs:enumeration value="Tantō" />
-            <xs:enumeration value="Naginata" />
-            <xs:enumeration value="Yari" />
             <xs:enumeration value="Ken" />
             <xs:enumeration value="Nagamaki" />
+            <xs:enumeration value="Naginata" />
+            <xs:enumeration value="Tachi" />
+            <xs:enumeration value="Tantō" />
+            <xs:enumeration value="Wakizashi" />
+            <xs:enumeration value="Yari" />
         </xs:restriction>
     </xs:simpleType>
 
@@ -24,18 +25,19 @@
 
     <xs:simpleType name="meiEnum">
         <xs:restriction base="xs:string">
-            <xs:enumeration value="Mumei">
-                <xs:annotation>
-                    <xs:documentation>Unsigned.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="Shoshin" />
+            <!-- Order by values by name -->
             <xs:enumeration value="Gimei">
                 <xs:annotation>
                     <xs:documentation>False/counterfeit signature.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="Modern" />
+            <xs:enumeration value="Mumei">
+                <xs:annotation>
+                    <xs:documentation>Unsigned.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Shoshin" />
         </xs:restriction>
     </xs:simpleType>
 
@@ -92,15 +94,7 @@
             <xs:documentation>The overall shape of a sword blade.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
-            <xs:enumeration value="Shinogi-zukuri">
-                <xs:annotation>
-                    <xs:documentation>
-                        The most common blade construction seen on Japanese swords, or rather on long swords. Blades in
-                        shinogi- zukuri feature as the name suggests a shinogi which lies more close to the mune than to
-                        the cutting edge, a ko-shinogi, and a yokote. Also called hon-zukuri (本造).
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
+            <!-- Order by values by name -->
             <xs:enumeration value="Hira-zukuri">
                 <xs:annotation>
                     <xs:documentation>
@@ -110,26 +104,7 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="Shōbu-zukuri" />
-            <xs:enumeration value="Katakiriha-zukuri">
-                <xs:annotation>
-                    <xs:documentation>
-                        Also katakiriha-zukuri. Sword construction where one side is in hira-zukuri, and the other in
-                        kiriba-zukuri. This tsukurikomi appeared towards the end of the Kamakura period but came again
-                        in fashion in the early and towards the end of the Edo period.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="Kiriba-zukuri">
-                <xs:annotation>
-                    <xs:documentation>
-                        Also pronounced as kiriha-zukuri. Similar to a shinogi-zukuri but with the shinogi ridge very
-                        close to the cutting edge. We could also speak of a shinogi-zukuri blade with a very wide
-                        shinogi-ji. This blade construction developed from the hira-zukuri interpretation and is only
-                        seen on ancient swords or on some later hommages to ancient swords.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
+
             <xs:enumeration value="Kanmuri-otoshi-zukuri">
                 <xs:annotation>
                     <xs:documentation>
@@ -140,15 +115,28 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="Unokubi-zukuri">
+
+            <xs:enumeration value="Katakiriha-zukuri">
                 <xs:annotation>
                     <xs:documentation>
-                        Lit. “cormorant’s neck construction.” Sword construction similar to kanmuri-otoshi but here only
-                        the middle part of the shinogi-ji is slanted while the base and kissaki area are normal.
-                        Unokubi-zukuri blades sometimes come with a yokote.
+                        Also katakiriha-zukuri. Sword construction where one side is in hira-zukuri, and the other in
+                        kiriba-zukuri. This tsukurikomi appeared towards the end of the Kamakura period but came again
+                        in fashion in the early and towards the end of the Edo period.
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+
+            <xs:enumeration value="Kiriba-zukuri">
+                <xs:annotation>
+                    <xs:documentation>
+                        Also pronounced as kiriha-zukuri. Similar to a shinogi-zukuri but with the shinogi ridge very
+                        close to the cutting edge. We could also speak of a shinogi-zukuri blade with a very wide
+                        shinogi-ji. This blade construction developed from the hira-zukuri interpretation and is only
+                        seen on ancient swords or on some later hommages to ancient swords.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+
             <xs:enumeration value="Kissaki-moroha-zukuri">
                 <xs:annotation>
                     <xs:documentation>Blade construction where the tip area is sharpened on both edges was introduced in
@@ -158,6 +146,7 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+
             <xs:enumeration value="Osoraku-zukuri">
                 <xs:annotation>
                     <xs:documentation>
@@ -165,6 +154,28 @@
                         (島田助宗) who engraved the characters osoraku onto the blade, thus the name osoraku-zukuri. It
                         is basically only seen on tantō and ko-wakizashi and was actively revived by the shinshintō-era
                         Kiyomaro (清麿) school.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+
+            <xs:enumeration value="Shinogi-zukuri">
+                <xs:annotation>
+                    <xs:documentation>
+                        The most common blade construction seen on Japanese swords, or rather on long swords. Blades in
+                        shinogi- zukuri feature as the name suggests a shinogi which lies more close to the mune than to
+                        the cutting edge, a ko-shinogi, and a yokote. Also called hon-zukuri (本造).
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+
+            <xs:enumeration value="Shōbu-zukuri" />
+
+            <xs:enumeration value="Unokubi-zukuri">
+                <xs:annotation>
+                    <xs:documentation>
+                        Lit. “cormorant’s neck construction.” Sword construction similar to kanmuri-otoshi but here only
+                        the middle part of the shinogi-ji is slanted while the base and kissaki area are normal.
+                        Unokubi-zukuri blades sometimes come with a yokote.
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
@@ -251,30 +262,7 @@
 
     <xs:simpleType name="hadaEnum">
         <xs:restriction base="xs:string">
-            <xs:enumeration value="Itame">
-                <xs:annotation>
-                    <xs:documentation>
-                        Forging structure of scattered irregular oval-like structures resembling wood grain. It is not
-                        as burl as mokume nor does it contain of running lines as does masame.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="Mokume">
-                <xs:annotation>
-                    <xs:documentation>
-                        Similar to the annual rings of a tree trunk (although this similarity may not always be
-                        immediately evident).
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="Masame">
-                <xs:annotation>
-                    <xs:documentation>
-                        More or less straight forging structure which reminds of the cross-section of a tree cut along
-                        the vertical plane.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
+            <!-- Order by values by name -->
             <xs:enumeration value="Ayasugi">
                 <xs:annotation>
                     <xs:documentation>
@@ -284,14 +272,16 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="Nashiji">
+
+            <xs:enumeration value="Itame">
                 <xs:annotation>
                     <xs:documentation>
-                        This hada resembles the flesh of a sliced pear (nashi) and is essentially a fine and dense
-                        ko-mokume with ji-nie all over.
+                        Forging structure of scattered irregular oval-like structures resembling wood grain. It is not
+                        as burl as mokume nor does it contain of running lines as does masame.
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+
             <xs:enumeration value="Konuka">
                 <xs:annotation>
                     <xs:documentation>
@@ -299,11 +289,39 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+
+            <xs:enumeration value="Masame">
+                <xs:annotation>
+                    <xs:documentation>
+                        More or less straight forging structure which reminds of the cross-section of a tree cut along
+                        the vertical plane.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+
+            <xs:enumeration value="Mokume">
+                <xs:annotation>
+                    <xs:documentation>
+                        Similar to the annual rings of a tree trunk (although this similarity may not always be
+                        immediately evident).
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+
             <xs:enumeration value="Muji">
                 <xs:annotation>
                     <xs:documentation>
                         Term to refer to a jigane whose jihada is not discernible because it is so tight, mostly in
                         reference to shinshintō or gendaitō blades.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+
+            <xs:enumeration value="Nashiji">
+                <xs:annotation>
+                    <xs:documentation>
+                        This hada resembles the flesh of a sliced pear (nashi) and is essentially a fine and dense
+                        ko-mokume with ji-nie all over.
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
@@ -326,14 +344,6 @@
 
     <xs:simpleType name="soriEnum">
         <xs:restriction base="xs:string">
-            <xs:enumeration value="Toriizori">
-                <xs:annotation>
-                    <xs:documentation>
-                        Lit. “curvature like a torii (a Shinto shrine archway).” Refers to an even sori with its deepest
-                        point around the center of the blade. The most common sori found on Japanese swords.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
             <xs:enumeration value="Koshizori">
                 <xs:annotation>
                     <xs:documentation>
@@ -342,6 +352,15 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+
+            <xs:enumeration value="Muzori">
+                <xs:annotation>
+                    <xs:documentation>
+                        Lit. “no sori,” i.e. a straight blade.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+
             <xs:enumeration value="Sakizori">
                 <xs:annotation>
                     <xs:documentation>
@@ -349,18 +368,21 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+
+            <xs:enumeration value="Toriizori">
+                <xs:annotation>
+                    <xs:documentation>
+                        Lit. “curvature like a torii (a Shinto shrine archway).” Refers to an even sori with its deepest
+                        point around the center of the blade. The most common sori found on Japanese swords.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+
             <xs:enumeration value="Uchizori">
                 <xs:annotation>
                     <xs:documentation>
                         Lit. “inward curvature.” An uchizori curves in the opposite direction, i.e. towards the cutting
                         edge.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="Muzori">
-                <xs:annotation>
-                    <xs:documentation>
-                        Lit. “no sori,” i.e. a straight blade.
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
@@ -422,14 +444,6 @@
 
     <xs:simpleType name="muneEnum">
         <xs:restriction base="xs:string">
-            <xs:enumeration value="Iori">
-                <xs:annotation>
-                    <xs:documentation>
-                        Iori means “roof”. This type of mune resembles an A-frame roof, with two surfaces. The most
-                        popular style of mune. It appears more or less acute-angled.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
             <xs:enumeration value="Hira">
                 <xs:annotation>
                     <xs:documentation>
@@ -438,18 +452,29 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="Mitsu">
+
+            <xs:enumeration value="Iori">
                 <xs:annotation>
                     <xs:documentation>
-                        Three-surfaced mune very often seen on tantō and swords from Sōshū smiths.
+                        Iori means “roof”. This type of mune resembles an A-frame roof, with two surfaces. The most
+                        popular style of mune. It appears more or less acute-angled.
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+
             <xs:enumeration value="Maru">
                 <xs:annotation>
                     <xs:documentation>
                         Round mune. Typical for ancient sword but occasionally seen on swords of the Ko-Aoe school and
                         from the Saikaidō and Hokurikudō regions.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+
+            <xs:enumeration value="Mitsu">
+                <xs:annotation>
+                    <xs:documentation>
+                        Three-surfaced mune very often seen on tantō and swords from Sōshū smiths.
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
@@ -469,26 +494,6 @@
 
     <xs:simpleType name="hamonEnum">
         <xs:restriction base="xs:string">
-            <xs:enumeration value="Sanbonsugi">
-                <xs:annotation>
-                    <xs:documentation>Lit. “three cedars.” Hamon interpretation of groups of three pointed togari mostly
-                        seen on works of the Kanemoto school (兼元) of Mino. Also referred to s sanken-ba (三間刃, lit.
-                        “three-interval ha”).
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="Suguha">
-                <xs:annotation>
-                    <xs:documentation>Generic term for a straight hamon.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="Gunome">
-                <xs:annotation>
-                    <xs:documentation>
-                        Lit. “reciprocal eyes/elements.” A series of waves that look like similarly-sized semicircles.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
             <xs:enumeration value="Chōji">
                 <xs:annotation>
                     <xs:documentation>
@@ -497,18 +502,24 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="Midareba">
+
+            <xs:enumeration value="Fujimi-saigyō">
                 <xs:annotation>
                     <xs:documentation>
-                        Irregular hamon pattern which comes in many varieties.
+                        A picturesque hamon interpretation that alludes to the Heian poet Saigyō (西行, 1118-1190)
+                        looking at Mt. Fuji. Saigyō was famous for admiring nature in his works.
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="Notare">
+
+            <xs:enumeration value="Gunome">
                 <xs:annotation>
-                    <xs:documentation>An undulating hamon pattern of gentle waves.</xs:documentation>
+                    <xs:documentation>
+                        Lit. “reciprocal eyes/elements.” A series of waves that look like similarly-sized semicircles.
+                    </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+
             <xs:enumeration value="Hitatsura">
                 <xs:annotation>
                     <xs:documentation>
@@ -518,19 +529,7 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="Sudareba">
-                <xs:annotation>
-                    <xs:documentation>
-                        Lit. “bamboo blind ha.” A sudareba is based on suguha or a shallow notare. The pattern seen
-                        inside the hamon looks like a bamboo blind.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="Tōranba">
-                <xs:annotation>
-                    <xs:documentation>Lit. “ha in the form of large surging waves.”</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
+
             <xs:enumeration value="Juzu-ba">
                 <xs:annotation>
                     <xs:documentation>
@@ -538,22 +537,7 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="Kikusui-ba">
-                <xs:annotation>
-                    <xs:documentation>
-                        Picturesque hamon interpretation with chrysanthemum-shaped elements above the habuchi which
-                        reminds of the kikusui subject, i.e. chrysanthemums floating down on a stream.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="Mimigata-ha">
-                <xs:annotation>
-                    <xs:documentation>
-                        Ear-shaped hamon pattern mostly seen on swords by Osafune Chōgi (長義). Also referred to as
-                        mimigata no gunome (耳形互の目) or mimigata-ha (耳形の刃).
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
+
             <xs:enumeration value="Kataochi-gunome">
                 <xs:annotation>
                     <xs:documentation>
@@ -563,12 +547,66 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="Fujimi-saigyō">
+
+            <xs:enumeration value="Kikusui-ba">
                 <xs:annotation>
                     <xs:documentation>
-                        A picturesque hamon interpretation that alludes to the Heian poet Saigyō (西行, 1118-1190)
-                        looking at Mt. Fuji. Saigyō was famous for admiring nature in his works.
+                        Picturesque hamon interpretation with chrysanthemum-shaped elements above the habuchi which
+                        reminds of the kikusui subject, i.e. chrysanthemums floating down on a stream.
                     </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+
+            <xs:enumeration value="Midareba">
+                <xs:annotation>
+                    <xs:documentation>
+                        Irregular hamon pattern which comes in many varieties.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+
+            <xs:enumeration value="Mimigata-ha">
+                <xs:annotation>
+                    <xs:documentation>
+                        Ear-shaped hamon pattern mostly seen on swords by Osafune Chōgi (長義). Also referred to as
+                        mimigata no gunome (耳形互の目) or mimigata-ha (耳形の刃).
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+
+            <xs:enumeration value="Notare">
+                <xs:annotation>
+                    <xs:documentation>An undulating hamon pattern of gentle waves.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+
+            <xs:enumeration value="Sanbonsugi">
+                <xs:annotation>
+                    <xs:documentation>Lit. “three cedars.” Hamon interpretation of groups of three pointed togari mostly
+                        seen on works of the Kanemoto school (兼元) of Mino. Also referred to s sanken-ba (三間刃, lit.
+                        “three-interval ha”).
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+
+            <xs:enumeration value="Sudareba">
+                <xs:annotation>
+                    <xs:documentation>
+                        Lit. “bamboo blind ha.” A sudareba is based on suguha or a shallow notare. The pattern seen
+                        inside the hamon looks like a bamboo blind.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+
+            <xs:enumeration value="Suguha">
+                <xs:annotation>
+                    <xs:documentation>Generic term for a straight hamon.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+
+            <xs:enumeration value="Tōranba">
+                <xs:annotation>
+                    <xs:documentation>Lit. “ha in the form of large surging waves.”</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
@@ -594,6 +632,48 @@
 
     <xs:simpleType name="hatarakiEnum">
         <xs:restriction base="xs:string">
+            <xs:enumeration value="Ashi">
+                <xs:annotation>
+                    <xs:documentation>
+                        Lit. “leg.”. A thin line of nioi that runs across the hamon towards the cutting edge.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+
+            <xs:enumeration value="Chikei">
+                <xs:annotation>
+                    <xs:documentation>
+                        Lit. “shadow(s) in the steel.” A black gleaming line of nie in the ji, i.e. of ji-nie.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+
+            <xs:enumeration value="Hotsure">
+                <xs:annotation>
+                    <xs:documentation>
+                        Arrangement of nie which make the habuchi look like a frayed piece of cloth. Also called
+                        nie-hotsure (沸ほつれ・沸解れ).
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+
+            <xs:enumeration value="Inazuma">
+                <xs:annotation>
+                    <xs:documentation>
+                        Lit. “lightning.” Crooked kinsuji which resembles a bolt of lightning.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+
+            <xs:enumeration value="Kinsuji">
+                <xs:annotation>
+                    <xs:documentation>
+                        Lit. “gold line.” A short, straight, brilliant black line of nie that appears inside the hamon,
+                        usually near the habuchi. If crooked, the term nazuma (稲妻) is applied.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+
             <xs:enumeration value="Nie">
                 <xs:annotation>
                     <xs:documentation>
@@ -602,6 +682,7 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+
             <xs:enumeration value="Nioi">
                 <xs:annotation>
                     <xs:documentation>
@@ -611,20 +692,25 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="Inazuma">
+
+            <xs:enumeration value="Nijūba">
                 <xs:annotation>
                     <xs:documentation>
-                        Lit. “lightning.” Crooked kinsuji which resembles a bolt of lightning.
+                        Lit. “double ha.” A second habuchi line, consisting of nie or nioi, drawn parallel to the main habuchi.
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="Chikei">
+
+            <xs:enumeration value="Sunagashi">
                 <xs:annotation>
                     <xs:documentation>
-                        Lit. “shadow(s) in the steel.” A black gleaming line of nie in the ji, i.e. of ji-nie.
+                        Lit. “stream of sand” or “flowing sand.” Accumulation of nie that resembles the marks left
+                        behind by a broom speeping over sand. Sunagashi usually appear inside the hamon and near and
+                        parallel to the habuchi.
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+
             <xs:enumeration value="Tobiyaki">
                 <xs:annotation>
                     <xs:documentation>
@@ -633,59 +719,7 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="Hotsure">
-                <xs:annotation>
-                    <xs:documentation>
-                        Arrangement of nie which make the habuchi look like a frayed piece of cloth. Also called
-                        nie-hotsure (沸ほつれ・沸解れ).
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="Yo">
-                <xs:annotation>
-                    <xs:documentation>
-                        Lit. “leaf.” Ashi that is separate from the habuchi and that appears scattered inside the hamon.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="Yakikuzure">
-                <xs:annotation>
-                    <xs:documentation>
-                        Crumbling, deformed part of a nie-based hamon, usually seen at a midareba.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="Yubashiri">
-                <xs:annotation>
-                    <xs:documentation>
-                        Lit. “running hot water.” Formations of ji-nie, i.e. of nie in the ji, basically the same as
-                        tobiyaki but with a more “transparent” look and not so clear borders. They are compared with
-                        drops of hot water (yu, 湯), thus the name.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="Kinsuji">
-                <xs:annotation>
-                    <xs:documentation>
-                        Lit. “gold line.” A short, straight, brilliant black line of nie that appears inside the hamon,
-                        usually near the habuchi. If crooked, the term nazuma (稲妻) is applied.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="Ashi">
-                <xs:annotation>
-                    <xs:documentation>
-                        Lit. “leg.”. A thin line of nioi that runs across the hamon towards the cutting edge.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="Nijūba">
-                <xs:annotation>
-                    <xs:documentation>
-                        Lit. “double ha.” A second habuchi line, consisting of nie or nioi, drawn parallel to the main habuchi.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
+
             <xs:enumeration value="Utsuri">
                 <xs:annotation>
                     <xs:documentation>
@@ -694,12 +728,29 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="Sunagashi">
+
+            <xs:enumeration value="Yakikuzure">
                 <xs:annotation>
                     <xs:documentation>
-                        Lit. “stream of sand” or “flowing sand.” Accumulation of nie that resembles the marks left
-                        behind by a broom speeping over sand. Sunagashi usually appear inside the hamon and near and
-                        parallel to the habuchi.
+                        Crumbling, deformed part of a nie-based hamon, usually seen at a midareba.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+
+            <xs:enumeration value="Yo">
+                <xs:annotation>
+                    <xs:documentation>
+                        Lit. “leaf.” Ashi that is separate from the habuchi and that appears scattered inside the hamon.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+
+            <xs:enumeration value="Yubashiri">
+                <xs:annotation>
+                    <xs:documentation>
+                        Lit. “running hot water.” Formations of ji-nie, i.e. of nie in the ji, basically the same as
+                        tobiyaki but with a more “transparent” look and not so clear borders. They are compared with
+                        drops of hot water (yu, 湯), thus the name.
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
@@ -844,16 +895,16 @@
 
     <xs:simpleType name="nakagoEnum">
         <xs:restriction base="xs:string">
-            <xs:enumeration value="Ucu" />
-            <xs:enumeration value="Futsu-gata" />
-            <xs:enumeration value="Kijimomo-gata" />
-            <xs:enumeration value="Shiribari-gata" />
-            <xs:enumeration value="Gohei-gata" />
             <xs:enumeration value="Funa-gata" />
             <xs:enumeration value="Furisode-gata" />
-            <xs:enumeration value="Suriage" />
-            <xs:enumeration value="O-suriage" />
+            <xs:enumeration value="Futsu-gata" />
+            <xs:enumeration value="Gohei-gata" />
+            <xs:enumeration value="Kijimomo-gata" />
             <xs:enumeration value="Machi-okuri" />
+            <xs:enumeration value="O-suriage" />
+            <xs:enumeration value="Shiribari-gata" />
+            <xs:enumeration value="Suriage" />
+            <xs:enumeration value="Ubu" />
         </xs:restriction>
     </xs:simpleType>
 
@@ -870,11 +921,11 @@
 
     <xs:simpleType name="yasurimeEnum">
         <xs:restriction base="xs:string">
-            <xs:enumeration value="Kiri" />
-            <xs:enumeration value="Kattesagari" />
             <xs:enumeration value="Higaki" />
-            <xs:enumeration value="Takanoha" />
+            <xs:enumeration value="Kattesagari" />
+            <xs:enumeration value="Kiri" />
             <xs:enumeration value="Sujikai" />
+            <xs:enumeration value="Takanoha" />
         </xs:restriction>
     </xs:simpleType>
 
@@ -900,16 +951,19 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+
             <xs:enumeration value="Soe-hi">
                 <xs:annotation>
                     <xs:documentation>Bōhi which is accompanied by a second, thinner groove.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+
             <xs:enumeration value="Horimono">
                 <xs:annotation>
                     <xs:documentation></xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+
             <xs:enumeration value="Katana-hi">
                 <xs:annotation>
                     <xs:documentation>
@@ -918,6 +972,7 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+
             <xs:enumeration value="Koshi-bi">
                 <xs:annotation>
                     <xs:documentation>
@@ -926,6 +981,7 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+
             <xs:enumeration value="Futasuji-hi">
                 <xs:annotation>
                     <xs:documentation>
@@ -933,6 +989,7 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+
             <xs:enumeration value="Gomabashi">
                 <xs:annotation>
                     <xs:documentation>
@@ -942,6 +999,7 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+
             <xs:enumeration value="Bonji">
                 <xs:annotation>
                     <xs:documentation>
@@ -949,6 +1007,7 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+
             <xs:enumeration value="Kanji">
                 <xs:annotation>
                     <xs:documentation></xs:documentation>
